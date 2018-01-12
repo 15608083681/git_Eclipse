@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>this is Main</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<script type="text/javascript" src="/js/ajax.js"></script>
+</head>
+<body>
+<label id="lid"></label>
+<script>
+ajax({  
+    method: 'POST',  
+    url: 'test.do',  
+    data: {  
+        name: '张三',  
+        pwd: '123456'  
+    },  
+    success: function (response) {  
+    	var obj=eval('(' + response + ')')
+       console.log(response);
+       document.getElementById("lid").innerText="好事多磨"+obj.sex;
+    }  
+});
+</script>
+</body>
+</html>
